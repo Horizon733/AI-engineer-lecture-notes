@@ -1,0 +1,9 @@
+# Shared venv for all Python tools under prompt-tools/.
+# Install:  .venv\Scripts\python -m pip install -r requirements.txt   (Windows)
+#           .venv/bin/python -m pip install -r requirements.txt       (Mac/Linux)
+
+# --- image-studio ---
+-r image-studio/requirements.txt
+
+# --- compressor (LLMLingua-2) ---
+-r compressor/requirements.txt
