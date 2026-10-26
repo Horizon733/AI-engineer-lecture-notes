@@ -182,3 +182,40 @@ if ranking is not None:
     n_dis = sum(disagree)
     st.caption(f"Orange rows = the three metrics picked DIFFERENT sentences at that rank "
                f"({n_dis} of {k}). Rank 1 {'differs' if disagree[0] else 'agrees'} across metrics.")
+
+    st.divider()
+    st.subheader("4. How each score was calculated")
+    pick = st.selectbox("Sentence to compare with the query", range(len(sentences)),
+                        index=ranking[0][0], format_func=lambda i: sentences[i])
+    q, d = query_vec, doc_vecs[pick]
+    n_show = 3
+    dims = len(q)
+    dot = dot_product(q, d)
+    q_len, d_len = float(np.linalg.norm(q)), float(np.linalg.norm(d))
+
+    def vec_tex(v):
+        return r"[" + ", ".join(f"{x:.3f}" for x in v[:n_show]) + r", \dots]"
+
+    st.latex(rf"\mathbf{{q}} = {vec_tex(q)} \qquad \mathbf{{d}} = {vec_tex(d)} \qquad ({dims}\text{{ dims}})")
+
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("**Dot product** (higher = closer)")
+        st.latex(r"\mathbf{q}\cdot\mathbf{d} = \sum_{i=1}^{n} q_i d_i")
+        terms = " + ".join(f"({q[i]:.3f})({d[i]:.3f})" for i in range(n_show))
+        st.latex(rf"= {terms} + \dots")
+        st.latex(rf"= {dot:.4f}")
+    with c2:
+        st.markdown("**Euclidean distance** (lower = closer)")
+        st.latex(r"\lVert\mathbf{q}-\mathbf{d}\rVert = \sqrt{\sum_{i=1}^{n} (q_i - d_i)^2}")
+        terms = " + ".join(f"({q[i]:.3f} - {d[i]:.3f})^2" for i in range(n_show))
+        sq_sum = float(np.sum((q - d) ** 2))
+        st.latex(rf"= \sqrt{{{terms} + \dots}}")
+        st.latex(rf"= \sqrt{{{sq_sum:.4f}}} = {euclidean_distance(q, d):.4f}")
+    with c3:
+        st.markdown("**Cosine similarity** (higher = closer)")
+        st.latex(r"\cos\theta = \frac{\mathbf{q}\cdot\mathbf{d}}{\lVert\mathbf{q}\rVert\,\lVert\mathbf{d}\rVert}")
+        st.latex(rf"= \frac{{{dot:.4f}}}{{{q_len:.3f} \times {d_len:.3f}}}")
+        st.latex(rf"= {cosine_similarity(q, d):.4f}")
+    st.caption(f"Only the first {n_show} of {dims} terms are written out; the result sums all {dims}. "
+               r"Vector length ‖v‖ = √(Σ vᵢ²). Cosine is just the dot product divided by both lengths.")
