@@ -1,0 +1,17 @@
+[
+  {"question": "As a B.Tech student, what is the minimum attendance I need to write the end-semester exam?", "must_contain": ["75"]},
+  {"question": "Can a B.Tech student get attendance shortage condoned on medical grounds, and by how much?", "must_contain": ["10", "65"]},
+  {"question": "How are the internal assessment marks split for a B.Tech theory course?", "must_contain": ["20", "10", "40"]},
+  {"question": "What is the weightage of the end-semester examination in a B.Tech course?", "must_contain": ["60"]},
+  {"question": "What marks does a B.Tech student need to pass a theory course?", "must_contain": ["40", "24"]},
+  {"question": "How do I convert my B.Tech CGPA to a percentage?", "must_contain": ["0.5", "10"]},
+  {"question": "What is the annual B.Tech tuition fee and when are the installments due?", "must_contain": ["1,40,000", "July", "December"]},
+  {"question": "What is the late fee if a B.Tech student pays tuition after the deadline?", "must_contain": ["100", "per day"]},
+  {"question": "Which B.Tech students are eligible for the merit scholarship?", "must_contain": ["8.5", "85"]},
+  {"question": "How many library books can a B.Tech student borrow and for how long?", "must_contain": ["4", "14"]},
+  {"question": "What time is the hostel curfew for B.Tech students?", "must_contain": ["9:30"]},
+  {"question": "What happens if a B.Tech student enters the hostel late three times in a month?", "must_contain": ["parents", "warden"]},
+  {"question": "What CGPA does a B.Tech student need to be eligible for campus placements?", "must_contain": ["6.0", "backlog"]},
+  {"question": "Can a placed B.Tech student apply to another company?", "must_contain": ["dream", "12"]},
+  {"question": "How do I file a grievance and how long does it take to be resolved?", "must_contain": ["15", "10", "Ombudsperson"]}
+]

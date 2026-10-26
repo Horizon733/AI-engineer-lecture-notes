@@ -1,0 +1,11 @@
+# LangChain is pinned to 0.3.x: in 1.0, AgentExecutor / create_tool_calling_agent
+# moved out of `langchain.agents` (into the separate `langchain-classic` package).
+langchain>=0.3,<1.0
+langchain-community>=0.3,<1.0
+langchain-core>=0.3,<1.0
+langchain-groq>=0.3,<1.0
+duckduckgo-search
+streamlit
+python-dotenv
+sympy                           # for safe math evaluation
+pydantic-ai                     # for 06_research_agent.py (single-agent web research, Pydantic AI style)
