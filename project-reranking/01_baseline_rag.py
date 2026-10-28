@@ -60,6 +60,7 @@ def get_db() -> Chroma:
     )
     if not db.get(limit=1)["ids"]:
         build_index(db)
+    db.similarity_search("bjgh", 5)
     return db
 
 

@@ -1,0 +1,11 @@
+pydantic-ai
+groq
+duckduckgo-search
+httpx
+streamlit
+python-dotenv
+pytest
+pylint
+sympy
+textstat
+language-tool-python

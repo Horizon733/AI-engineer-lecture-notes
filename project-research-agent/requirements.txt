@@ -1,0 +1,12 @@
+pydantic-ai
+groq
+langchain-chroma
+langchain-huggingface
+langchain-text-splitters
+langchain-community
+sentence-transformers
+pypdf
+duckduckgo-search
+httpx
+streamlit
+python-dotenv
