@@ -1,0 +1,22 @@
+# MCP SDK. Pinned below 2.0: mcp 2.x renamed FastMCP -> MCPServer (so
+# `from mcp.server.fastmcp import FastMCP` breaks), and langchain-mcp-adapters
+# itself requires mcp<2.
+mcp>=1.24,<2
+
+# LangChain 1.x. AgentExecutor / create_tool_calling_agent now live in
+# `langchain-classic` (they moved out of `langchain.agents` in 1.0).
+langchain>=1.0,<2
+langchain-classic>=1.0,<2
+langchain-core>=1.3.3,<2
+langchain-groq
+langchain-mcp-adapters>=0.3,<0.4
+
+# RAG index (same stack as Day 4/5)
+langchain-chroma
+langchain-huggingface
+langchain-text-splitters
+langchain-community
+sentence-transformers
+pypdf
+
+python-dotenv
